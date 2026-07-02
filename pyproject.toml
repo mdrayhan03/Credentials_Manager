@@ -1,23 +1,31 @@
-[project]
+[tool.poetry]
 name = "credentials-app"
 version = "0.1.0"
-description = ""
+description = "A local-first, zero-knowledge credentials manager built with Flet and Python."
+authors = ["mdrayhan03 <phylosopherhossain2022@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.10"
-authors = [
-    { name = "Flet developer", email = "you@example.com" }
-]
-dependencies = [
-    "flet>=0.85.3"
-]
+license = "MIT" # <--- Explicitly added license type (Change to GPL-3.0, Apache-2.0, or Proprietary if applicable)
+packages = [{include = "models"}, {include = "viewmodels"}, {include = "views"}]
 
-[dependency-groups]
-dev = [
-    "flet-cli>=0.85.3",
-    "flet-desktop>=0.85.3",
-    "flet-web>=0.85.3",
-]
+[tool.poetry.dependencies]
+python = "^3.12"
+flet = "^0.85.3"
+cryptography = "^49.0.0"
+pip-system-certs = "^5.3"
 
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.1.1"
+flet-cli = "^0.85.3"
+flet-desktop = "^0.85.3"
+flet-web = "^0.85.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+# =====================================================================
+# FLET COMPILATION CONFIGURATION (Do Not Delete)
+# =====================================================================
 [tool.flet]
 org = "com.mycompany"
 product = "credentials-app"
